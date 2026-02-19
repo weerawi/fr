@@ -5,7 +5,7 @@ import 'package:image/image.dart' as img;
 
 /// Service for managing MobileFaceNet model and generating face embeddings
 class MLService {
-  static const String MODEL_PATH = 'assets/mobile_facenet.tflite';
+  static const String MODEL_PATH = 'assets/mobilefacenet.tflite';
   static const int INPUT_SIZE = 112; // MobileFaceNet expects 112x112 images
   static const int EMBEDDING_SIZE = 192; // Output dimension
 

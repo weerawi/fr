@@ -44,6 +44,13 @@ class _HomeScreenState extends State<HomeScreen> {
     }
   }
 
+  CameraDescription _getFrontCamera() {
+    return widget.cameras.firstWhere(
+      (camera) => camera.lensDirection == CameraLensDirection.front,
+      orElse: () => widget.cameras.first,
+    );
+  }
+
   Future<void> _navigateToEnrollment() async {
     if (widget.cameras.isEmpty) {
       _showError('No camera available');
@@ -53,7 +60,7 @@ class _HomeScreenState extends State<HomeScreen> {
     final result = await Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => EnrollmentScreen(camera: widget.cameras.first),
+        builder: (context) => EnrollmentScreen(camera: _getFrontCamera()),
       ),
     );
 
@@ -76,7 +83,7 @@ class _HomeScreenState extends State<HomeScreen> {
     final result = await Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => VerificationScreen(camera: widget.cameras.first),
+        builder: (context) => VerificationScreen(camera: _getFrontCamera()),
       ),
     );
 

@@ -34,4 +34,4 @@ flutter:
   
   assets:
     - assets/
-    - assets/mobile_facenet.tflite
+    - assets/mobilefacenet.tflite
